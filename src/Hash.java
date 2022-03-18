@@ -14,9 +14,9 @@ public class Hash {
         }
     }
         
-    String hash(int to_hash){
+    String hash(int hash){
         //get digest
-        byte[] digest = md.digest(String.valueOf(to_hash).getBytes(StandardCharsets.UTF_8));
+        byte[] digest = md.digest(String.valueOf(hash).getBytes(StandardCharsets.UTF_8));
         //convert digest to string, found on stackoverflow
         return String.format("%032x", new BigInteger(1, digest));
     }

@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class UnHash {
     
     //number of values to check for unhasher
-    static final int NUM_VALUES = 100000;
+    private static final int NUM_VALUES = 100000;
     //dictionary for attack
     HashMap<String, Integer> h;
     
@@ -16,9 +16,9 @@ public class UnHash {
         }
     }
     
-    public int unhash(String to_unhash){
+    public int unhash(String hash){
         //returns -1 if hash isn't found
-        return h.getOrDefault(to_unhash, -1);
+        return h.getOrDefault(hash, -1);
     }
 
     public static void main(String[] args) {
