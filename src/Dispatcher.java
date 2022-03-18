@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 public class Dispatcher {
 
     LinkedHashMap<String, Integer> hashes = new LinkedHashMap<String, Integer>();
-    UnHash u = new UnHash();
+    UnHash unhasher = new UnHash();
 
     //import a hash and crack it if it's not already in the hashmap
     public void importHashes(String path){
@@ -14,7 +14,7 @@ public class Dispatcher {
             String line = br.readLine();
             while(line != null){
                 String current = line;
-                hashes.computeIfAbsent(line, k -> u.unhash(current));
+                hashes.computeIfAbsent(line, k -> unhasher.unhash(current));
                 line = br.readLine();
             }
         } catch(Exception e){
