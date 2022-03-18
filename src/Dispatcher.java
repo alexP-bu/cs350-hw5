@@ -8,7 +8,7 @@ public class Dispatcher {
     LinkedHashMap<String, Integer> hashes = new LinkedHashMap<String, Integer>();
     UnHash unhasher = new UnHash();
 
-    //import a hash and crack it if it's not already in the hashmap
+    //import hashes and crack it if it's not already in the hashmap
     public void importHashes(String path){
         try(BufferedReader br = new BufferedReader(new FileReader(new File(path)))){
             String line = br.readLine();
