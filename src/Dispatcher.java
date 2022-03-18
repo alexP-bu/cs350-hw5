@@ -10,18 +10,16 @@ public class Dispatcher {
 
     //import a hash and crack it if it's not already in the hashmap
     public void importHashes(String path){
-        try{
-            BufferedReader br = new BufferedReader(new FileReader(new File(path)));
+        try(BufferedReader br = new BufferedReader(new FileReader(new File(path)))){
             String line = br.readLine();
             while(line != null){
                 String current = line;
                 hashes.computeIfAbsent(line, k -> u.unhash(current));
                 line = br.readLine();
             }
-            br.close();
         } catch(Exception e){
           e.printStackTrace();
-        }
+        } 
     }
     
     //print cracked values in order of insertion
