@@ -32,7 +32,7 @@ public class Dispatcher {
         Dispatcher d = new Dispatcher();
         //import hashes into dispatcher
         //the dispatcher maintains a hashmap of cracked hashes
-        d.importHashes(args[0].toString());
+        d.importHashes(args[0]);
         //print hashes in the dispatcher
         d.printHashes();
     }
