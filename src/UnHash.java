@@ -2,27 +2,27 @@ import java.util.HashMap;
 
 public class UnHash {
     
-    //number of values to check for unhasher
-    private static final int NUM_VALUES = 100000;
+    private static Hash hasher;
+    private int numHashes = 0;
     //dictionary for attack
-    HashMap<String, Integer> h;
+    HashMap<String, Integer> dict;
     
     public UnHash(){
-        h = new HashMap<String, Integer>();
-        //generate dictionary for attack
-        Hash hasher = new Hash();
-        for(int i = 0; i < NUM_VALUES; i++){
-            h.put(hasher.hash(i), i);
-        }
+        dict = new HashMap<String, Integer>();
+        hasher = new Hash();
     }
     
     public int unhash(String hash){
-        //returns -1 if hash isn't found
-        return h.getOrDefault(hash, -1);
+        while(!dict.containsKey(hash)){
+            numHashes++;
+            dict.put(hasher.hash(numHashes), numHashes);  
+        }
+        return dict.get(hash);
     }
 
     public static void main(String[] args) {
         UnHash u = new UnHash();
         System.out.println(u.unhash(args[0]));
     }
+
 }
