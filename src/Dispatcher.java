@@ -1,30 +1,20 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.LinkedHashMap;
-
 public class Dispatcher {
 
-    LinkedHashMap<String, Integer> hashes = new LinkedHashMap<String, Integer>();
     UnHash unhasher = new UnHash();
 
-    //import hashes and crack it if it's not already in the hashmap
-    public void importHashes(String path){
+    public void unhashFromFile(String path){
         try(BufferedReader br = new BufferedReader(new FileReader(new File(path)))){
             String line = br.readLine();
             while(line != null){
-                String current = line;
-                hashes.computeIfAbsent(line, k -> unhasher.unhash(current));
+                unhasher.unhash(line);
                 line = br.readLine();
             }
         } catch(Exception e){
           e.printStackTrace();
-        } 
-    }
-    
-    //print cracked values in order of insertion
-    public void printHashes(){
-        hashes.forEach((k, v) -> System.out.println(v));
+        }
     }
 
     public static void main(String[] args) {
@@ -32,8 +22,6 @@ public class Dispatcher {
         Dispatcher d = new Dispatcher();
         //import hashes into dispatcher
         //the dispatcher maintains a hashmap of cracked hashes
-        d.importHashes(args[0]);
-        //print hashes in the dispatcher
-        d.printHashes();
+        d.unhashFromFile(args[0]);
     }
 }

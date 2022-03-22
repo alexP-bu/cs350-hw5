@@ -30,7 +30,8 @@
             "name": "Launch UnHash",
             "request": "launch",
             "mainClass": "UnHash",
-            "projectName": "cs350-hw5_3fc5adb7"
+            "projectName": "cs350-hw5_3fc5adb7",
+            "args": "295b99e17dd22997df2879e489239d39"
         }
     ]
 }
