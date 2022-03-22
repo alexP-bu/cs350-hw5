@@ -2,7 +2,7 @@ import java.util.Map;
 
 public class Worker implements Runnable{
     
-    private final Hash hasher = new Hash();
+    private static final Hash hasher = new Hash();
     private Map<String, Integer> m;
     private int start = 0;
     private int end = 0;

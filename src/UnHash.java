@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class UnHash {
     
-    private static Hash hasher = new Hash();
+    private static final Hash hasher = new Hash();
     private int numHashes = 0;
     //dictionary for attack
     Map<String, Integer> dict;
