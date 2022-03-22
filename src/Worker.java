@@ -7,7 +7,7 @@ public class Worker implements Runnable{
     private int start = 0;
     private int end = 0;
     
-    public void use(Map<String, Integer> map, int start, int end){
+    Worker(Map<String, Integer> map, int start, int end){
         this.m = map;
         this.start = start;
         this.end = end;
